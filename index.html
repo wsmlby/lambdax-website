@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LambdaX - Serverless GPU Computing</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --primary-color: #BB86FC;
+            --secondary-color: #03DAC6;
+            --text-color: #E0E0E0;
+            --header-color: #FFFFFF;
+            --card-bg: #1E1E1E;
+            --border-color: #333333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--header-color);
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            color: var(--header-color);
+            margin-bottom: 0.2em;
+        }
+        .hero .subtitle {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 1em;
+        }
+        .hero p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .cta-button {
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--header-color);
+            margin-bottom: 60px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .card h3 {
+            font-size: 1.5em;
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .case-study {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+        }
+        .case-study h3 {
+            color: var(--secondary-color);
+            font-size: 2em;
+        }
+        .case-study .highlight {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .pricing-overview {
+            text-align: center;
+        }
+        .pricing-table {
+            display: inline-block;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">LambdaX</div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="case_study.html">Case Study</a>
+                <a href="api_spec.html">API Docs</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="title">Serverless GPUs are Here.</h1>
+                <p class="subtitle">Finally, run your GPU-accelerated workloads with the simplicity and scalability of AWS Lambda.</p>
+                <p>LambdaX provides a seamless, highly compatible, and scalable platform for developers to run GPU-accelerated workloads like ML inference, video processing, and scientific computing within their existing cloud-native workflows.</p>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section class="section problem-solution-section">
+            <div class="container">
+                <div class="problem-solution">
+                    <div class="problem-card">
+                        <h2>The Problem</h2>
+                        <p>AWS Lambda doesn't offer GPU support. Developers with serverless architectures are forced to use more complex and expensive infrastructure like SageMaker or EC2 for GPU-dependent tasks, breaking the serverless paradigm and increasing costs.</p>
+                    </div>
+                    <div class="solution-card">
+                        <h2>The Solution</h2>
+                        <p>LambdaX offers a pay-per-use GPU compute platform that's deeply integrated with AWS. Migrate your existing Lambda projects with minimal code changes and slash your costs by leveraging our intelligent, high-density multi-tenant architecture.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <div class="container">
+                <h2>Why LambdaX?</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Effortless Migration</h3>
+                        <p>A true "lift-and-shift" experience. Keep your existing IAM roles and VPC networking. Just change your Docker base image, add `.to('cuda')` to your code, and deploy.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Drastic Cost Reduction</h3>
+                        <p>Our "Slice-Second" pricing model and intelligent scheduler ensure you pay only for the exact resources you use, for the exact time you use them. Stop paying for idle GPUs.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Secure & Isolated</h3>
+                        <p>We use advanced GPU partitioning to create hardware-isolated, secure slices for each workload. Your code and data run completely segregated from other tenants.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Familiar Developer Experience</h3>
+                        <p>With a `lambdaX-cli` and an API designed to mirror AWS Lambda, your team can onboard and deploy in minutes without learning a new ecosystem.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Seamless VPC Integration</h3>
+                        <p>Connect to your private resources like RDS databases and caches with our secure AWS PrivateLink-based networking features. No public internet exposure.</p>
+                    </div>
+                     <div class="card">
+                        <h3>Intelligent Scheduling</h3>
+                        <p>Our secret sauce. The LambdaX scheduler solves a real-time "bin packing" problem to place workloads on warm workers, minimizing cold starts and maximizing GPU utilization to drive down costs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                 <h2>Proven Results</h2>
+                <div class="case-study">
+                    <h3>SecureHome Reduces Video Analysis Costs by <span class="highlight">51%</span></h3>
+                    <p>In a single day, SecureHome migrated their YOLOv8-based video analysis pipeline from AWS Lambda to LambdaX. The result?</p>
+                    <p>Processing latency dropped from 10 seconds to **3.88 seconds** and their cost per million jobs plummeted from ~$1,200 to **~$582**.</p>
+                    <a href="case_study.html" style="color: var(--secondary-color);">Read the full case study &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section pricing-overview">
+             <div class="container">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>No hidden fees. No complex calculations. Just two simple metrics.</p>
+                <table class="pricing-table">
+                    <tr>
+                        <td style="padding: 15px;"><strong>Invocation Fee</strong></td>
+                        <td style="padding: 15px;">$0.20 per 1 million invocations</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px;"><strong>Compute Fee</strong></td>
+                        <td style="padding: 15px;">$0.00005 per Slice-Second</td>
+                    </tr>
+                </table>
+                <p style="margin-top: 30px;">A "Slice" is our unified unit of compute, combining vCPU, RAM, and VRAM. <br>You only pay for the resources you need, by the millisecond.</p>
+                <a href="pricing.html" style="color: var(--secondary-color);">See detailed pricing examples &rarr;</a>
+            </div>
+        </section>
+
+        <section class="section cta-section" style="border-bottom: none;">
+            <div class="container" style="text-align: center;">
+                <h2>Ready to Slash Your GPU Costs?</h2>
+                <p>Start building on LambdaX today and bring serverless simplicity to your most demanding workloads.</p>
+                <a href="#" class="cta-button">Contact Sales</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LambdaX. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

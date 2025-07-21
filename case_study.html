@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: 6-Hour Migration Cuts Costs by 51% - LambdaX</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --primary-color: #BB86FC;
+            --secondary-color: #03DAC6;
+            --text-color: #E0E0E0;
+            --header-color: #FFFFFF;
+            --card-bg: #1E1E1E;
+            --border-color: #333333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--header-color);
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        .page-title {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+        .page-title h1 {
+            font-size: 3.5em;
+            color: var(--header-color);
+            margin-bottom: 0.2em;
+        }
+        .page-title p {
+            font-size: 1.2em;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            font-size: 2.5em;
+            color: var(--header-color);
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+        h3 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--card-bg);
+            color: var(--header-color);
+        }
+        td {
+            background-color: #2a2a2a;
+        }
+        code {
+            background-color: #333;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .story-box {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">LambdaX</div>
+            <nav>
+                <a href="index.html#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="case_study.html">Case Study</a>
+                <a href="api_spec.html">API Docs</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <div class="container">
+                <h1>51% Cheaper, 61% Faster: <span style="white-space: nowrap;">A 6-Hour Migration</span></h1>
+                <p>The story of how SecureHome used LambdaX to optimize their AI pipeline and slash costs in less than a workday.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <section class="section">
+                <h2>The Original Pipeline: A High-Cost Bottleneck</h2>
+                <p>SecureHome's processing pipeline was built on a 4-vCPU AWS Lambda function. For each clip, the function would:</p>
+                <ol>
+                    <li><strong>Fetch & Download:</strong> Connect to an RDS database and S3 bucket inside their VPC.</li>
+                    <li><strong>Decode & Infer:</strong> Use the 4 vCPUs to run a parallelized YOLOv8 object detection model.</li>
+                </ol>
+                <p>This setup was powerful but inefficient for inference. The function took <span class="highlight">10 seconds</span> to run, costing them <span class="highlight">~$1,200 per million clips</span>.</p>
+            </section>
+
+            <section class="section">
+                <h2>10:00 AM: A 2-Hour Migration for Immediate Savings</h2>
+                <p>The engineering team started their morning by testing a simple "lift-and-shift" migration.</p>
+                <div class="story-box">
+                    <h3>The Migration</h3>
+                    <ul>
+                        <li><strong>Container:</strong> They changed their Dockerfile's base to an NVIDIA CUDA image and updated their <code>requirements.txt</code> to use the GPU-enabled version of PyTorch.</li>
+                        <li><strong>Code:</strong> They added a single line of code—<code>.to('cuda')</code>—to move their YOLOv8 model onto the GPU.</li>
+                        <li><strong>Slice Selection:</strong> They analyzed their function's memory footprint and selected a <strong>3x Slice</strong> on LambdaX.</li>
+                        <li><strong>Infrastructure:</strong> <strong>No changes were needed.</strong> Because LambdaX integrates with existing AWS networking and IAM, their function's code for connecting to their private VPC resources worked out-of-the-box.</li>
+                    </ul>
+                </div>
+                <h3>Morning Results</h3>
+                <p>This simple migration, still processing one frame at a time, yielded a significant boost from the raw power of the GPU.</p>
+                <ul>
+                    <li><strong>Latency:</strong> Dropped from 10 seconds to <span class="highlight">5.3 seconds</span>.</li>
+                    <li><strong>Cost:</strong> Dropped from ~$1,200 to <span class="highlight">~$795 per million clips</span>.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>2:00 PM: A 4-Hour Refactor for Transformational Speed</h2>
+                <p>After lunch, encouraged by the results, a developer dedicated the afternoon to a simple optimization: batching.</p>
+                <div class="story-box">
+                    <h3>The Refactor</h3>
+                    <p>The developer modified the function's logic. Instead of inferring on each frame individually, they:</p>
+                    <ol>
+                        <li>Decoded a small batch of <strong>32 frames</strong>.</li>
+                        <li>"Stacked" the frames into a single tensor.</li>
+                        <li>Sent this entire batch to the GPU for inference in a single pass.</li>
+                    </ol>
+                    <p>This allowed them to fully leverage the GPU's parallel processing capabilities. They continued using the same <strong>3x Slice</strong>.</p>
+                </div>
+                <h3>Afternoon Results</h3>
+                <p>This change was transformative.</p>
+                <ul>
+                    <li><strong>Latency:</strong> The total processing time dropped to just <span class="highlight">3.88 seconds</span>.</li>
+                    <li><strong>Cost:</strong> The cost plummeted to <span class="highlight">~$582 per million clips</span>—a <strong>51% reduction</strong> from their original AWS Lambda bill.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Final Summary</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>4vCPU AWS Lambda (Before)</th>
+                            <th>10:00 AM (Lift-and-Shift)</th>
+                            <th>2:00 PM (Optimized)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Effort</strong></td>
+                            <td>-</td>
+                            <td>2 hours</td>
+                            <td>+ 4 hours</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Latency</strong></td>
+                            <td>10 seconds</td>
+                            <td>5.3 seconds</td>
+                            <td class="highlight">3.88 seconds</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cost / 1M Jobs</strong></td>
+                            <td>~$1,200</td>
+                            <td>~$795</td>
+                            <td class="highlight">~$582</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LambdaX. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

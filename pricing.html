@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LambdaX Pricing - Serverless GPU Computing</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --primary-color: #BB86FC;
+            --secondary-color: #03DAC6;
+            --text-color: #E0E0E0;
+            --header-color: #FFFFFF;
+            --card-bg: #1E1E1E;
+            --border-color: #333333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--header-color);
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        .page-title {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+        .page-title h1 {
+            font-size: 3.5em;
+            color: var(--header-color);
+            margin-bottom: 0.2em;
+        }
+        .page-title p {
+            font-size: 1.2em;
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            font-size: 2.5em;
+            color: var(--header-color);
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+        h3 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--card-bg);
+            color: var(--header-color);
+        }
+        td {
+            background-color: #2a2a2a;
+        }
+        code {
+            background-color: #333;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+        .example-box {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .example-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .example-box li {
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">LambdaX</div>
+            <nav>
+                <a href="index.html#features">Features</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="case_study.html">Case Study</a>
+                <a href="api_spec.html">API Docs</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <div class="container">
+                <h1>LambdaX Pricing</h1>
+                <p>Simple, predictable, and fair pricing. Our model is designed to be transparent, with no hidden fees.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <section class="section">
+                <h2>Pricing at a Glance</h2>
+                <p>Your monthly bill is made of three simple components:</p>
+                <ol>
+                    <li><strong>Compute Fee:</strong> You pay for the GPU resources you use, billed by the millisecond.</li>
+                    <li><strong>Invocation Fee:</strong> A tiny flat fee for each time your function is run.</li>
+                    <li><strong>Networking Add-ons (Optional):</strong> A flat monthly fee for advanced features that connect LambdaX securely to your private VPC.</li>
+                </ol>
+            </section>
+            <section class="section">
+                <h2>Core Pricing: Compute & Invocations</h2>
+                <p>The core of our pricing is the <strong>Slice-Second</strong>, a single, unified metric that combines vCPU, system memory (RAM), and GPU memory (VRAM) into one simple unit.</p>
+                
+                <h3>The LambdaX Slice</h3>
+                <p>A <code>1x Slice</code> is the smallest unit of compute capacity you can request.</p>
+                <div class="example-box">
+                    <strong>1x Slice = 0.25 vCPU + 1 GB Host RAM + 1.5 GB VRAM</strong>
+                </div>
+                <p style="margin-top: 20px;">You configure your function with the number of slices needed to meet its peak requirement. For example, a function needing 3.5 GB of VRAM would be configured as a <strong>3x Slice</strong> (which provides 4.5 GB of VRAM).</p>
+
+                <h3>Usage-Based Fees</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Invocation Fee</strong></td>
+                            <td><code>$0.20</code> per 1 million invocations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compute Fee</strong></td>
+                            <td><code>$0.00005</code> per Slice-Second</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 20px;"><strong>Formula:</strong> <code>Total Compute Cost = (Number of Slices) x (Duration in Seconds) x $0.00005</code></p>
+            </section>
+
+            <section class="section">
+                <h2>Detailed Pricing Example</h2>
+                <p>Let's walk through an example for a typical video processing function.</p>
+                <div class="example-box">
+                    <h4>1. Function Requirements:</h4>
+                    <ul>
+                        <li>vCPU needed: 0.8</li>
+                        <li>Host RAM needed: 3.5 GB</li>
+                        <li>GPU VRAM needed: 2.0 GB</li>
+                    </ul>
+
+                    <h4>2. Choose Your Slice Size:</h4>
+                    <p>To meet the <strong>3.5 GB Host RAM</strong> requirement, you would select a <strong>4x Slice</strong>, which provides 4 GB of Host RAM, 1.0 vCPU, and 6.0 GB of VRAM.</p>
+
+                    <h4>3. Measure Duration:</h4>
+                    <p>Your function runs and takes <strong>1.2 seconds</strong> to complete.</p>
+
+                    <h4>4. Calculate the Cost:</h4>
+                    <ul>
+                        <li><strong>Slice-Seconds consumed:</strong> <code>4 Slices * 1.2 seconds</code> = <strong>4.8 Slice-Seconds</strong></li>
+                        <li><strong>Cost for this invocation:</strong> <code>4.8 Slice-Seconds * $0.00005/Slice-Second</code> = <strong><code>$0.00024</code></strong></li>
+                    </ul>
+                     <p>If you were to run this function <strong>1 million times</strong> in a month, your total bill would be:</p>
+                    <ul>
+                        <li><strong>Invocation Cost:</strong> <code>1,000,000 * ($0.20 / 1,000,000)</code> = <strong>$0.20</strong></li>
+                        <li><strong>Compute Cost:</strong> <code>1,000,000 * $0.00024</code> = <strong>$240.00</strong></li>
+                        <li><strong>Total Monthly Bill:</strong> <strong><code>$240.20</code></strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Optional Add-on: Advanced Networking</h2>
+                <p>For functions that need to interact securely with your private cloud resources, we offer powerful networking features based on AWS PrivateLink, billed hourly. This ensures that traffic between your VPC and LambdaX never traverses the public internet.</p>
+                <p><strong>Total Cost Transparency:</strong> Enabling these features requires provisioning resources <strong>in your own AWS account</strong> for maximum security and control. The table below shows both the LambdaX fee and the estimated, separate charge you will see on your AWS bill, prorated by the hour.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Use Case</th>
+                            <th>LambdaX Price<br><small>(Your LambdaX Bill)</small></th>
+                            <th>Estimated AWS Cost<br><small>(Your AWS Bill)</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Private HTTP Trigger</strong></td>
+                            <td>Invoke your function from within your VPC using a private IP address.</td>
+                            <td><strong>Included</strong></td>
+                            <td><strong>~ $0.01 / hour</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Private VPC Access</strong></td>
+                            <td>Allow your function to connect to private resources in your VPC (e.g., a database or cache).</td>
+                            <td><strong>$0.015 / hour</strong></td>
+                            <td><strong>~ $0.0225 / hour</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 20px;"><em><strong>Why is there an AWS cost?</strong> The AWS cost pays for the dedicated networking endpoint (a VPC Endpoint or a Network Load Balancer) that runs securely inside your own AWS account. This gives you full control and ensures the connection is truly private. We provide simple CloudFormation templates to make this setup as easy as possible.</em></p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LambdaX. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
