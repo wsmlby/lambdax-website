@@ -1,0 +1,315 @@
+/* Global Styles */
+:root {
+    --bg-color: #121212;
+    --primary-color: #BB86FC;
+    --secondary-color: #03DAC6;
+    --text-color: #E0E0E0;
+    --header-color: #FFFFFF;
+    --card-bg: #1E1E1E;
+    --border-color: #333333;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--header-color);
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: auto;
+    color: #888;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+}
+
+/* Shared page styles (case study, pricing) */
+.page-title {
+    text-align: center;
+    padding: 80px 0 40px;
+}
+
+.page-title h1 {
+    font-size: 3.5em;
+    color: var(--header-color);
+    margin-bottom: 0.2em;
+}
+
+.page-title p {
+    font-size: 1.2em;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: var(--header-color);
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: var(--secondary-color);
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--card-bg);
+    color: var(--header-color);
+}
+
+td {
+    background-color: #2a2a2a;
+}
+
+code {
+    background-color: #333;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* Page-specific overrides and additions */
+
+/* --- Index Page --- */
+.index-page .container {
+    max-width: 1100px;
+}
+
+.index-page .hero {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.index-page .hero h1 {
+    font-size: 3.5em;
+    color: var(--header-color);
+    margin-bottom: 0.2em;
+}
+
+.index-page .hero .subtitle {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 1em;
+}
+
+.index-page .hero p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.index-page .cta-button {
+    background-color: var(--primary-color);
+    color: #000;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.index-page .cta-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.index-page .section {
+    padding: 80px 0;
+}
+
+.index-page .section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.index-page .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.index-page .card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.index-page .card h3 {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-top: 0;
+}
+
+.index-page .problem-solution {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.index-page .case-study {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+}
+
+.index-page .case-study h3 {
+    color: var(--secondary-color);
+    font-size: 2em;
+}
+
+.index-page .case-study .highlight {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.index-page .pricing-overview {
+    text-align: center;
+}
+
+.index-page .pricing-table {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+/* --- API Spec Page --- */
+.api-spec-page .container {
+    max-width: 900px;
+}
+
+.api-spec-page main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.api-spec-page .coming-soon h1 {
+    font-size: 3.5em;
+    color: var(--header-color);
+    margin-bottom: 0.2em;
+}
+
+.api-spec-page .coming-soon p {
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+
+/* --- Case Study & Pricing Pages --- */
+.case-study-page .container,
+.pricing-page .container {
+    max-width: 900px;
+}
+
+.case-study-page h2,
+.pricing-page h2 {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 15px;
+}
+
+.case-study-page .highlight {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.case-study-page .story-box {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.pricing-page .example-box {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.pricing-page .example-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pricing-page .example-box li {
+    margin-bottom: 10px;
+}
+
+ol, ul {
+    padding-left: 20px;
+}
