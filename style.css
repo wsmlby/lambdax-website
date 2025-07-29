@@ -42,10 +42,12 @@ header .container {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--header-color);
+.logo a {
+    text-decoration: none;
+}
+
+.logo img {
+    height: 40px;
 }
 
 nav a {
@@ -312,4 +314,22 @@ code {
 
 ol, ul {
     padding-left: 20px;
+}
+
+/* --- Contact Page --- */
+.contact-link {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+.contact-page footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
