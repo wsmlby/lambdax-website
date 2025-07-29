@@ -249,7 +249,7 @@ code {
 
 /* --- API Spec Page --- */
 .api-spec-page .container {
-    max-width: 900px;
+    max-width: 1100px;
 }
 
 .api-spec-page main {
@@ -274,7 +274,7 @@ code {
 /* --- Case Study & Pricing Pages --- */
 .case-study-page .container,
 .pricing-page .container {
-    max-width: 900px;
+    max-width: 1100px;
 }
 
 .case-study-page h2,

@@ -14,12 +14,12 @@
 
     <header>
         <div class="container">
-            <div class="logo"><a href="https://lambdax.cloud"><img src="logo-name.svg" alt="LambdaX Logo"></a></div>
+            <div class="logo"><a href="/"><img src="logo-name.svg" alt="LambdaX Logo"></a></div>
             <nav>
                 <a href="index.html#features">Features</a>
                 <a href="pricing.html">Pricing</a>
                 <a href="case_study.html">Case Study</a>
-                <a href="api_spec.html">API Docs</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
@@ -42,7 +42,6 @@
                     <li><strong>Networking Add-ons (Optional):</strong> A flat monthly fee for advanced features that connect LambdaX securely to your private VPC.</li>
                 </ol>
             </section>
-            <hr>
             <section class="section">
                 <h2>Core Pricing: Compute & Invocations</h2>
                 <p>The core of our pricing is the <strong>Slice-Second</strong>, a single, unified metric that combines vCPU, system memory (RAM), and GPU memory (VRAM) into one simple unit.</p>
@@ -76,7 +75,6 @@
                 <p style="margin-top: 20px;"><strong>Formula:</strong> <code>Total Compute Cost = (Number of Slices) x (Duration in Seconds) x $0.0001</code></p>
                 <p>LambdaX functions are designed for a single GPU-accelerated process. If your function spawns multiple processes that access the GPU, your <code>NumberOfSlices</code> will be multiplied by the peak number of concurrent processes detected during the invocation to ensure fair billing.</p>
             </section>
-            <hr>
             <section class="section">
                 <h2>Detailed Pricing Example</h2>
                 <p>Let's walk through an example for a typical video processing function.</p>
@@ -107,7 +105,6 @@
                     </ul>
                 </div>
             </section>
-            <hr>
             <section class="section">
                 <h2>Optional Add-on: Advanced Networking</h2>
                 <p>For functions that need to interact securely with your private cloud resources, we offer powerful networking features based on AWS PrivateLink, billed hourly. This ensures that traffic between your VPC and LambdaX never traverses the public internet.</p>
