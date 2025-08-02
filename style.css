@@ -146,8 +146,39 @@ code {
 }
 
 .index-page .hero {
+    position: relative;
     text-align: center;
     padding: 100px 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-page .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.index-page .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.7); /* Dark overlay based on --bg-color */
+    z-index: 2;
+}
+
+.index-page .hero-content {
+    position: relative;
+    z-index: 3;
 }
 
 .index-page .hero h1 {
