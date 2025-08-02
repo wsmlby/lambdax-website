@@ -27,9 +27,9 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1 class="title">Serverless GPUs are Here.</h1>
-                <p class="subtitle">Finally, run your GPU-accelerated workloads with the simplicity and scalability of AWS Lambda.</p>
-                <p>LambdaX provides a seamless, highly compatible, and scalable platform for developers to run GPU-accelerated workloads like ML inference, video processing, and scientific computing within their existing cloud-native workflows.</p>
+                <h1 class="title">Serverless GPUs, Unleashed.</h1>
+                <p class="subtitle">Run serverless GPU workload with zero infrastructure management. Pay only for what you use, down to the slice-second.</p>
+                <p>LambdaX is the serverless platform for developers who need GPU acceleration without the complexity and cost of renting entire instances. Perfect for AI inference, fine-tuning, video processing, and more.</p>
                 <a href="get_started.html" class="cta-button">Get Started</a>
             </div>
         </section>
@@ -38,12 +38,12 @@
             <div class="container">
                 <div class="problem-solution">
                     <div class="problem-card">
-                        <h2>The Problem</h2>
-                        <p>AWS Lambda doesn't offer GPU support. Developers with serverless architectures are forced to use more complex and expensive infrastructure like SageMaker or EC2 for GPU-dependent tasks, breaking the serverless paradigm and increasing costs.</p>
+                        <h2>Provisioning GPUs is Inefficient</h2>
+                        <p>Renting and managing GPU servers is complex and expensive. Industry reports show that enterprise GPU utilization can be as low as 10-15%, meaning most of the time, you're paying for powerful hardware that sits idle.</p>
                     </div>
                     <div class="solution-card">
-                        <h2>The Solution</h2>
-                        <p>LambdaX offers a pay-per-use GPU compute platform that's deeply integrated with AWS. Migrate your existing Lambda projects with minimal code changes and slash your costs by leveraging our intelligent, high-density multi-tenant architecture.</p>
+                        <h2>The Serverless Advantage</h2>
+                        <p>LambdaX brings the simplicity and efficiency of the serverless model to GPU workloads. Deploy your code in seconds and let us handle the scaling and infrastructure. You only pay for what you use, eliminating the cost of idle capacity.</p>
                     </div>
                 </div>
             </div>
@@ -51,31 +51,51 @@
 
         <section id="features" class="section">
             <div class="container">
-                <h2>Why LambdaX?</h2>
+                <h2>Core Platform Advantages</h2>
                 <div class="grid">
                     <div class="card">
-                        <h3>Effortless Migration</h3>
-                        <p>A true "lift-and-shift" experience. Keep your existing IAM roles and VPC networking. Just change your Docker base image, add `.to('cuda')` to your code, and deploy.</p>
+                        <h3>Automatic Scaling</h3>
+                        <p>Forget about managing servers. LambdaX automatically scales your functions from zero to thousands of concurrent invocations, ensuring your application is always ready to handle demand without any manual intervention.</p>
                     </div>
                     <div class="card">
-                        <h3>Drastic Cost Reduction</h3>
-                        <p>Our "Slice-Second" pricing model and intelligent scheduler ensure you pay only for the exact resources you use, for the exact time you use them. Stop paying for idle GPUs.</p>
+                        <h3>Fractional GPUs & Slice-Second Billing</h3>
+                        <p>Other platforms bill by the full "GPU-second," forcing you to pay for the whole resource even if you only need a fraction. We offer true fractional GPUs via our Slices, billed by the <strong>Slice-Second</strong> for maximum cost-efficiency. <a href="benchmark.html">See what a Slice can do.</a></p>
+                    </div>
+                    <div class="card">
+                        <h3>Beyond Machine Learning</h3>
+                        <p>LambdaX isn't just for AI. Run any general-purpose GPU workload, including CUDA, rendering, and video encoding/decoding. If it can be accelerated by an NVIDIA GPU, it can run on LambdaX.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Flexible Region Control</h3>
+                        <p>You choose where your code runs. Pin workloads to a specific region to be close to your data, or select our "flexible" option for an automatic cost discount.</p>
                     </div>
                     <div class="card">
                         <h3>Secure & Isolated</h3>
-                        <p>We use advanced GPU partitioning to create hardware-isolated, secure slices for each workload. Your code and data run completely segregated from other tenants.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Familiar Developer Experience</h3>
-                        <p>With a `lambdaX-cli` and an API designed to mirror AWS Lambda, your team can onboard and deploy in minutes without learning a new ecosystem.</p>
+                        <p>Your workloads run in private, isolated environments, ensuring your code and data are always protected and segregated from other tenants.</p>
                     </div>
                     <div class="card">
                         <h3>Seamless VPC Integration</h3>
-                        <p>Connect to your private resources like RDS databases and caches or any internal services.</p>
+                        <p>Establish a secure, encrypted connection from your functions to private resources like RDS databases, caches, or any internal services within your VPC.</p>
                     </div>
-                     <div class="card">
-                        <h3>Intelligent Scheduling</h3>
-                        <p>Our secret sauce. The LambdaX scheduler solves a real-time "bin packing" problem to place workloads on warm workers, minimizing cold starts and maximizing GPU utilization to drive down costs.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Flexible Workloads for Any Use Case</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Bring Your Own Container</h3>
+                        <p>Package any custom code, dependencies, or NVIDIA-compatible library you need. If it runs in a Docker container and implements a simple handler, it runs on LambdaX. You bring the code, we handle the rest.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Optimized Runtimes</h3>
+                        <p>Deploy popular models like YOLOv8, Stable Diffusion, or Whisper with minimal code. For LLMs, bring your own fine-tuned adapters (e.g., LoRA) to use with base models like Llama 3 or Mistral, giving you custom models without the high cost of full hosting.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Migrate from AWS Lambda</h3>
+                        <p>To keep things simple and familiar, we use the standard AWS Lambda invocation API. This means no proprietary SDKs and an effortless migration path for existing serverless functions.</p>
                     </div>
                 </div>
             </div>
@@ -97,7 +117,7 @@
              <div class="container">
                 <h2>Simple, Transparent <a href="pricing.html" style="color: var(--secondary-color);">Pricing</a></h2>
                 <p>No hidden fees. No complex calculations. Just two simple metrics.</p>
-                <p style="margin-top: 30px;">You only pay for the resources you need, by the millisecond.</p>
+                <p style="margin-top: 30px;">You only pay for the resources you need, by the millisecond. <a href="benchmark.html">See what a Slice can do.</a></p>
                 <a href="pricing.html" style="color: var(--secondary-color);">See detailed pricing examples &rarr;</a>
             </div>
         </section>
