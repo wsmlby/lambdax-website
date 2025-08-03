@@ -25,138 +25,151 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>LambdaX - Serverless GPU Computing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="index-page">
+<body class="antialiased">
 
-    <header>
-        <div class="container">
-            <div class="logo"><a href="/"><img src="logo-name.svg" alt="LambdaX Logo"></a></div>
-            <nav>
-                <a href="index.html#features">Features</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="case_study.html">Case Study</a>
-                <a href="contact.html">Contact</a>
+    <header class="py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="logo"><a href="/"><img src="logo-name.svg" alt="LambdaX Logo" class="h-8"></a></div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html#features" class="hover:text-white">Features</a>
+                <a href="pricing.html" class="hover:text-white">Pricing</a>
+                <a href="case_study.html" class="hover:text-white">Case Study</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
             </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html#features" class="block py-2 px-4 text-sm hover:bg-gray-700">Features</a>
+            <a href="pricing.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Pricing</a>
+            <a href="case_study.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Case Study</a>
+            <a href="contact.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact</a>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="relative text-center py-20 md:py-32">
             <video autoplay loop muted playsinline class="hero-video">
                 <source src="https://public-artifacts.lambdax.cloud/background.mp4" type="video/mp4">
             </video>
-            <div class="hero-content container">
-                <h1 class="title">Serverless GPUs, Unleashed.</h1>
-                <p class="subtitle">Run serverless GPU workload with zero infrastructure management. Pay only for what you use, down to the slice-second.</p>
-                <p>LambdaX is the serverless platform for developers who need GPU acceleration without the complexity and cost of renting entire instances. Perfect for AI inference, fine-tuning, video processing, and more.</p>
+            <div class="container mx-auto px-4 relative">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Serverless GPUs, Unleashed.</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-6">Run serverless GPU workload with zero infrastructure management. Pay only for what you use, down to the slice-second.</p>
+                <p class="max-w-3xl mx-auto mb-8">LambdaX is the serverless platform for developers who need GPU acceleration without the complexity and cost of renting entire instances. Perfect for AI inference, fine-tuning, video processing, and more.</p>
                 <a href="get_started.html" class="cta-button">Get Started</a>
             </div>
         </section>
 
-        <section class="section problem-solution-section">
-            <div class="container">
-                <div class="problem-solution">
-                    <div class="problem-card">
-                        <h2>Provisioning GPUs is Inefficient</h2>
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <h2 class="text-2xl font-bold mb-4">Provisioning GPUs is Inefficient</h2>
                         <p>Renting and managing GPU servers is complex and expensive. Industry reports show that enterprise GPU utilization can be as low as 10-15%, meaning most of the time, you're paying for powerful hardware that sits idle.</p>
                     </div>
-                    <div class="solution-card">
-                        <h2>The Serverless Advantage</h2>
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <h2 class="text-2xl font-bold mb-4">The Serverless Advantage</h2>
                         <p>LambdaX brings the simplicity and efficiency of the serverless model to GPU workloads. Deploy your code in seconds and let us handle the scaling and infrastructure. You only pay for what you use, eliminating the cost of idle capacity.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="section">
-            <div class="container">
-                <h2>Core Platform Advantages</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Automatic Scaling</h3>
+        <section id="features" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Core Platform Advantages</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Automatic Scaling</h3>
                         <p>Forget about managing servers. LambdaX automatically scales your functions from zero to thousands of concurrent invocations, ensuring your application is always ready to handle demand without any manual intervention.</p>
                     </div>
-                    <div class="card">
-                        <h3>Fractional GPUs & Slice-Second Billing</h3>
-                        <p>Other platforms bill by the full "GPU-second," forcing you to pay for the whole resource even if you only need a fraction. We offer true fractional GPUs via our Slices, billed by the <strong>Slice-Second</strong> for maximum cost-efficiency. <a href="benchmark.html">See what a Slice can do.</a></p>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Fractional GPUs & Slice-Second Billing</h3>
+                        <p>Other platforms bill by the full "GPU-second," forcing you to pay for the whole resource even if you only need a fraction. We offer true fractional GPUs via our Slices, billed by the <strong>Slice-Second</strong> for maximum cost-efficiency. <a href="benchmark.html" class="text-blue-400 hover:underline">See what a Slice can do.</a></p>
                     </div>
-                    <div class="card">
-                        <h3>Beyond Machine Learning</h3>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Beyond Machine Learning</h3>
                         <p>LambdaX isn't just for AI. Run any general-purpose GPU workload, including CUDA, rendering, and video encoding/decoding. If it can be accelerated by an NVIDIA GPU, it can run on LambdaX.</p>
                     </div>
-                    <div class="card">
-                        <h3>Flexible Region Control</h3>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Flexible Region Control</h3>
                         <p>You choose where your code runs. Pin workloads to a specific region to be close to your data, or select our "flexible" option for an automatic cost discount.</p>
                     </div>
-                    <div class="card">
-                        <h3>Secure & Isolated</h3>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Secure & Isolated</h3>
                         <p>Your workloads run in private, isolated environments, ensuring your code and data are always protected and segregated from other tenants.</p>
                     </div>
-                    <div class="card">
-                        <h3>Seamless VPC Integration</h3>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Seamless VPC Integration</h3>
                         <p>Establish a secure, encrypted connection from your functions to private resources like RDS databases, caches, or any internal services within your VPC.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <h2>Flexible Workloads for Any Use Case</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Bring Your Own Container</h3>
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Flexible Workloads for Any Use Case</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Bring Your Own Container</h3>
                         <p>Package any custom code, dependencies, or NVIDIA-compatible library you need. If it runs in a Docker container and implements a simple handler, it runs on LambdaX. You bring the code, we handle the rest.</p>
                     </div>
-                    <div class="card">
-                        <h3>Optimized Runtimes</h3>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Optimized Runtimes</h3>
                         <p>Deploy popular models like YOLOv8, Stable Diffusion, or Whisper with minimal code. For LLMs, bring your own fine-tuned adapters (e.g., LoRA) to use with base models like Llama 3 or Mistral, giving you custom models without the high cost of full hosting.</p>
                     </div>
-                    <div class="card">
-                        <h3>Migrate from AWS Lambda</h3>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Migrate from AWS Lambda</h3>
                         <p>To keep things simple and familiar, we use the standard AWS Lambda invocation API. This means no proprietary SDKs and an effortless migration path for existing serverless functions.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                 <h2>Proven Results</h2>
-                <div class="case-study">
-                    <h3>SecureHome Reduces Video Analysis Costs by <span class="highlight">45%</span></h3>
-                    <p>In a single day, SecureHome migrated their YOLOv8-based video analysis pipeline from AWS Lambda to LambdaX. The result?</p>
-                    <p>Processing latency dropped from 10 seconds to **3.5 seconds** and their cost per million jobs plummeted from ~$1,200 to **~$660**.</p>
-                    <a href="case_study.html" style="color: var(--secondary-color);">Read the full case study &rarr;</a>
+        <section class="py-16">
+            <div class="container mx-auto px-4 text-center">
+                 <h2 class="text-3xl font-bold mb-4">Proven Results</h2>
+                <div class="bg-gray-900 border border-blue-500 p-8 rounded-lg max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-semibold mb-4">SecureHome Reduces Video Analysis Costs by <span class="highlight">45%</span></h3>
+                    <p class="mb-4">In a single day, SecureHome migrated their YOLOv8-based video analysis pipeline from AWS Lambda to LambdaX. The result?</p>
+                    <p class="mb-4">Processing latency dropped from 10 seconds to <strong class="text-white">3.5 seconds</strong> and their cost per million jobs plummeted from ~$1,200 to <strong class="text-white">~$660</strong>.</p>
+                    <a href="case_study.html" class="text-blue-400 hover:underline font-semibold">Read the full case study &rarr;</a>
                 </div>
             </div>
         </section>
 
-        <section class="section pricing-overview">
-             <div class="container">
-                <h2>Simple, Transparent <a href="pricing.html" style="color: var(--secondary-color);">Pricing</a></h2>
-                <p>No hidden fees. No complex calculations. Just two simple metrics.</p>
-                <p style="margin-top: 30px;">You only pay for the resources you need, by the millisecond. <a href="benchmark.html">See what a Slice can do.</a></p>
-                <a href="pricing.html" style="color: var(--secondary-color);">See detailed pricing examples &rarr;</a>
+        <section class="py-16">
+             <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-4">Simple, Transparent <a href="pricing.html" class="text-blue-400 hover:underline">Pricing</a></h2>
+                <p class="max-w-2xl mx-auto mb-6">No hidden fees. No complex calculations. Just two simple metrics.</p>
+                <p class="max-w-2xl mx-auto mb-6">You only pay for the resources you need, by the millisecond. <a href="benchmark.html" class="text-blue-400 hover:underline">See what a Slice can do.</a></p>
+                <a href="pricing.html" class="text-blue-400 hover:underline font-semibold">See detailed pricing examples &rarr;</a>
             </div>
         </section>
 
-        <section class="section cta-section" style="border-bottom: none;">
-            <div class="container" style="text-align: center;">
-                <h2>Ready to Slash Your GPU Costs?</h2>
-                <p>Start building on LambdaX today and bring serverless simplicity to your most demanding workloads.</p>
+        <section class="py-16 text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-4">Ready to Slash Your GPU Costs?</h2>
+                <p class="max-w-2xl mx-auto mb-8">Start building on LambdaX today and bring serverless simplicity to your most demanding workloads.</p>
                 <a href="mailto:hello@lambdax.cloud" class="cta-button">Contact Sales</a>
             </div>
         </section>
 
     </main>
 
-    <footer>
-        <div class="container">
+    <footer class="py-6">
+        <div class="container mx-auto px-4 text-center text-gray-400">
             <p>&copy; 2025 LambdaX. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

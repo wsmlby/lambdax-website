@@ -3,141 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Benchmark results for LambdaX GPU Slices versus traditional CPU performance for common AI tasks like object detection with YOLOv8.">
+    <meta name="keywords" content="gpu benchmark, cpu vs gpu, serverless gpu performance, yolov8 benchmark, ai inference speed">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lambdax.cloud/benchmark.html">
+    <meta property="og:title" content="LambdaX Benchmark - GPU Slice vs. CPU Performance">
+    <meta property="og:description" content="Benchmark results for LambdaX GPU Slices versus traditional CPU performance for common AI tasks like object detection with YOLOv8.">
+    <meta property="og:image" content="/social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lambdax.cloud/benchmark.html">
+    <meta property="twitter:title" content="LambdaX Benchmark - GPU Slice vs. CPU Performance">
+    <meta property="twitter:description" content="Benchmark results for LambdaX GPU Slices versus traditional CPU performance for common AI tasks like object detection with YOLOv8.">
+    <meta property="twitter:image" content="/social.png">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>LambdaX Benchmark - GPU Slice vs. CPU Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="benchmark-page">
+<body class="antialiased">
 
-    <header>
-        <div class="container">
-            <div class="logo"><a href="/"><img src="logo-name.svg" alt="LambdaX Logo"></a></div>
-            <nav>
-                <a href="index.html#features">Features</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="case_study.html">Case Study</a>
-                <a href="contact.html">Contact</a>
+    <header class="py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="logo"><a href="/"><img src="logo-name.svg" alt="LambdaX Logo" class="h-8"></a></div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html#features" class="hover:text-white">Features</a>
+                <a href="pricing.html" class="hover:text-white">Pricing</a>
+                <a href="case_study.html" class="hover:text-white">Case Study</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
             </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html#features" class="block py-2 px-4 text-sm hover:bg-gray-700">Features</a>
+            <a href="pricing.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Pricing</a>
+            <a href="case_study.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Case Study</a>
+            <a href="contact.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact</a>
         </div>
     </header>
 
     <main>
-        <div class="page-title">
-            <div class="container">
-                <h1>Benchmark: GPU Slices vs. CPU</h1>
-                <p>To understand the real-world value of GPU acceleration, this benchmark measures the performance of a common AI task on a standard CPU versus a fractional LambdaX GPU Slice.</p>
+        <section class="text-center py-20 md:py-32">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Benchmark: GPU Slices vs. CPU</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto">To understand the real-world value of GPU acceleration, this benchmark measures the performance of a common AI task on a standard CPU versus a fractional LambdaX GPU Slice.</p>
             </div>
-        </div>
+        </section>
 
-        <div class="container">
-            <section class="section">
-                <h2>The CPU Baseline</h2>
-                <p>First, let's establish a baseline using a standard AWS EC2 instance (`c5.xlarge`). We tested using both 1 and 2 virtual CPUs (vCPUs), a common configuration for many applications. The key metric is **Inference Frames Per Second (FPS)**—higher is better.</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>CPU Cores</th>
-                            <th>Performance (Inference FPS)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1 vCPU</td>
-                            <td>~11 FPS</td>
-                        </tr>
-                        <tr>
-                            <td>2 vCPUs</td>
-                            <td>~21 FPS</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p style="margin-top: 20px;">Even when optimizing with specialized libraries, performance doesn't significantly increase. We'll use **20 FPS as a generous baseline** for what a typical 2-vCPU instance can deliver.</p>
-                <div class="example-box">
-                    <strong>Conclusion:</strong> A standard CPU struggles to process real-time video, making it unsuitable for many modern AI applications.
+        <section class="py-16">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h2 class="text-3xl font-bold text-center mb-12">The CPU Baseline</h2>
+                <p class="text-center mb-8">First, let's establish a baseline using a standard AWS EC2 instance (`c5.xlarge`). We tested using both 1 and 2 virtual CPUs (vCPUs), a common configuration for many applications. The key metric is <strong>Inference Frames Per Second (FPS)</strong>—higher is better.</p>
+                <div class="overflow-x-auto mb-8">
+                    <table class="min-w-full max-w-md mx-auto bg-gray-800 rounded-lg">
+                        <thead class="bg-gray-700">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">CPU Cores</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Performance (Inference FPS)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <tr>
+                                <td class="px-6 py-4">1 vCPU</td>
+                                <td class="px-6 py-4">~11 FPS</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">2 vCPUs</td>
+                                <td class="px-6 py-4">~21 FPS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-center mb-8">Even when optimizing with specialized libraries, performance doesn't significantly increase. We'll use <strong>20 FPS as a generous baseline</strong> for what a typical 2-vCPU instance can deliver.</p>
+                <div class="bg-gray-900 border border-red-500 p-6 rounded-lg text-center">
+                    <strong class="text-xl">Conclusion:</strong> A standard CPU struggles to process real-time video, making it unsuitable for many modern AI applications.
                 </div>
             </section>
 
-            <section class="section">
-                <h2>The LambdaX GPU Slice Advantage</h2>
-                <p>A LambdaX "Slice" gives your workload a guaranteed fraction of a powerful datacenter GPU. The following results reflect real-world performance in our multi-tenant environment on an NVIDIA L4 GPU.</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Platform</th>
-                            <th>Resources</th>
-                            <th>Performance (Inference FPS)</th>
-                            <th>Speed-up vs. 2x vCPU</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Standard Cloud CPU</td>
-                            <td>2 vCPUs</td>
-                            <td>~20 FPS</td>
-                            <td>1x</td>
-                        </tr>
-                        <tr>
-                            <td><strong>LambdaX Slice</strong></td>
-                            <td><strong>1 Slice</strong></td>
-                            <td><strong>~109 FPS</strong></td>
-                            <td><strong>~5.5x</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>LambdaX Slice</strong></td>
-                            <td><strong>2 Slices</strong></td>
-                            <td><strong>~232 FPS</strong></td>
-                            <td><strong>~11.6x</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>LambdaX Slice</strong></td>
-                            <td><strong>4 Slices (50% GPU)</strong></td>
-                            <td><strong>~450 FPS</strong></td>
-                            <td><strong>~22.5x</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>LambdaX Slice</strong></td>
-                            <td><strong>8 Slices (100% GPU)</strong></td>
-                            <td><strong>~660 FPS</strong></td>
-                            <td><strong>~33x</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <section class="section">
-                <h2>Benchmark Environment</h2>
-                <p>To ensure the results are clear and reproducible, here is the environment used for these tests.</p>
-                <ul>
-                    <li><strong>Workload:</strong> All tests run the same object detection task using the <strong>YOLOv8s</strong> model with a <strong>batch size of 32</strong>.</li>
-                    <li><strong>CPU Environment:</strong> The CPU baseline was established on an AWS `c5.xlarge` instance. To ensure the strongest possible baseline, performance was measured using both PyTorch and Intel's <strong>OpenVINO</strong> framework, and the best result for a given core count was used.</li>
-                    <li><strong>GPU Environment:</strong> The GPU benchmarks were run on a multi-tenant server with an <strong>NVIDIA L4 GPU</strong> (driver version `575.64.03`) using a standard PyTorch script.</li>
-                </ul>
-            </section>
-
-            <section class="section">
-                <h2>What This Means For You</h2>
-                <div class="example-box">
-                    <h4>1. Massive Acceleration</h4>
-                    <p>Even a single LambdaX Slice provides a <strong>~5.5x performance boost</strong> over a dual-core CPU setup. Scaling up to 4 Slices gives you over **22 times the performance**.</p>
-                    
-                    <h4>2. Peak Efficiency with Slices</h4>
-                    <p>This benchmark reveals a key insight: more GPU resources don't always mean linearly better performance. Notice that going from 4 Slices (450 FPS) to 8 Slices (660 FPS) doubles the cost, but performance only increases by ~1.5x. This is because real-world applications have bottlenecks that prevent perfect scaling. LambdaX allows you to find the most cost-effective "sweet spot" for your job, ensuring you don't pay for diminishing returns.</p>
-
-                    <h4>3. Unlock New Possibilities</h4>
-                    <p>With this level of performance, applications that were previously impractical—like real-time video analysis, complex image generation, or low-latency LLM inference—become fast and affordable.</p>
+            <section class="py-16">
+                <div class="container mx-auto px-4 max-w-5xl">
+                    <h2 class="text-3xl font-bold text-center mb-12">The LambdaX GPU Slice Advantage</h2>
+                    <p class="text-center mb-8">A LambdaX "Slice" gives your workload a guaranteed fraction of a powerful datacenter GPU. The following results reflect real-world performance in our multi-tenant environment on an NVIDIA L4 GPU.</p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-gray-800 rounded-lg">
+                            <thead class="bg-gray-700">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Platform</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Resources</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Performance (Inference FPS)</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Speed-up vs. 2x vCPU</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-700">
+                                <tr>
+                                    <td class="px-6 py-4">Standard Cloud CPU</td>
+                                    <td class="px-6 py-4">2 vCPUs</td>
+                                    <td class="px-6 py-4">~20 FPS</td>
+                                    <td class="px-6 py-4">1x</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4"><strong>LambdaX Slice</strong></td>
+                                    <td class="px-6 py-4"><strong>1 Slice</strong></td>
+                                    <td class="px-6 py-4"><strong>~109 FPS</strong></td>
+                                    <td class="px-6 py-4 highlight font-bold">~5.5x</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4"><strong>LambdaX Slice</strong></td>
+                                    <td class="px-6 py-4"><strong>2 Slices</strong></td>
+                                    <td class="px-6 py-4"><strong>~232 FPS</strong></td>
+                                    <td class="px-6 py-4 highlight font-bold">~11.6x</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4"><strong>LambdaX Slice</strong></td>
+                                    <td class="px-6 py-4"><strong>4 Slices (50% GPU)</strong></td>
+                                    <td class="px-6 py-4"><strong>~450 FPS</strong></td>
+                                    <td class="px-6 py-4 highlight font-bold">~22.5x</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4"><strong>LambdaX Slice</strong></td>
+                                    <td class="px-6 py-4"><strong>8 Slices (100% GPU)</strong></td>
+                                    <td class="px-6 py-4"><strong>~660 FPS</strong></td>
+                                    <td class="px-6 py-4 highlight font-bold">~33x</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
-        </div>
+
+            <section class="py-16">
+                <div class="container mx-auto px-4 max-w-4xl">
+                    <h2 class="text-3xl font-bold text-center mb-12">Benchmark Environment</h2>
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <ul class="list-disc list-inside space-y-4">
+                            <li><strong>Workload:</strong> All tests run the same object detection task using the <strong>YOLOv8s</strong> model with a <strong>batch size of 32</strong>.</li>
+                            <li><strong>CPU Environment:</strong> The CPU baseline was established on an AWS `c5.xlarge` instance. To ensure the strongest possible baseline, performance was measured using both PyTorch and Intel's <strong>OpenVINO</strong> framework, and the best result for a given core count was used.</li>
+                            <li><strong>GPU Environment:</strong> The GPU benchmarks were run on a multi-tenant server with an <strong>NVIDIA L4 GPU</strong> (driver version `575.64.03`) using a standard PyTorch script.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16">
+                <div class="container mx-auto px-4 max-w-4xl">
+                    <h2 class="text-3xl font-bold text-center mb-12">What This Means For You</h2>
+                    <div class="bg-gray-900 border border-blue-500 p-8 rounded-lg space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">1. Massive Acceleration</h3>
+                            <p>Even a single LambdaX Slice provides a <span class="highlight font-bold">~5.5x performance boost</span> over a dual-core CPU setup. Scaling up to 4 Slices gives you over <span class="highlight font-bold">22 times the performance</span>.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">2. Peak Efficiency with Slices</h3>
+                            <p>This benchmark reveals a key insight: more GPU resources don't always mean linearly better performance. Notice that going from 4 Slices (450 FPS) to 8 Slices (660 FPS) doubles the cost, but performance only increases by ~1.5x. This is because real-world applications have bottlenecks that prevent perfect scaling. LambdaX allows you to find the most cost-effective "sweet spot" for your job, ensuring you don't pay for diminishing returns.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">3. Unlock New Possibilities</h3>
+                            <p>With this level of performance, applications that were previously impractical—like real-time video analysis, complex image generation, or low-latency LLM inference—become fast and affordable.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
     </main>
 
-    <footer>
-        <div class="container">
+    <footer class="py-6">
+        <div class="container mx-auto px-4 text-center text-gray-400">
             <p>&copy; 2025 LambdaX. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

@@ -3,40 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get started with LambdaX and join our waitlist to get early access to the serverless GPU platform.">
+    <meta name="keywords" content="serverless gpu access, get started with gpu, lambdax waitlist, gpu computing platform">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lambdax.cloud/get_started.html">
+    <meta property="og:title" content="Get Started - LambdaX">
+    <meta property="og:description" content="Get started with LambdaX and join our waitlist to get early access to the serverless GPU platform.">
+    <meta property="og:image" content="/social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lambdax.cloud/get_started.html">
+    <meta property="twitter:title" content="Get Started - LambdaX">
+    <meta property="twitter:description" content="Get started with LambdaX and join our waitlist to get early access to the serverless GPU platform.">
+    <meta property="twitter:image" content="/social.png">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>Get Started - LambdaX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="contact-page">
+<body class="antialiased">
 
-    <header>
-        <div class="container">
-            <div class="logo"><a href="index.html"><img src="logo-name.svg" alt="LambdaX Logo"></a></div>
-            <nav>
-                <a href="index.html#features">Features</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="case_study.html">Case Study</a>
-                <a href="contact.html">Contact</a>
+    <header class="py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="logo"><a href="/"><img src="logo-name.svg" alt="LambdaX Logo" class="h-8"></a></div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html#features" class="hover:text-white">Features</a>
+                <a href="pricing.html" class="hover:text-white">Pricing</a>
+                <a href="case_study.html" class="hover:text-white">Case Study</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
             </nav>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html#features" class="block py-2 px-4 text-sm hover:bg-gray-700">Features</a>
+            <a href="pricing.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Pricing</a>
+            <a href="case_study.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Case Study</a>
+            <a href="contact.html" class="block py-2 px-4 text-sm hover:bg-gray-700">Contact</a>
         </div>
     </header>
 
     <main>
-        <section class="section">
-            <div class="container">
-                <script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdz0bqk2BdmZYzJ7i87JR1DFVtP_2BwhcJMJI2ml3syrHTk.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script><a style="font: 12px Helvetica, sans-serif; color: #999; text-decoration: none;" href=www.surveymonkey.com> Create your own user feedback survey </a>
+        <section class="py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Join the Waitlist</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">We are currently in private beta. Join the waitlist to get early access to LambdaX.</p>
+                <div class="max-w-xl mx-auto">
+                    <script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdz0bqk2BdmZYzJ7i87JR1DFVtP_2BwhcJMJI2ml3syrHTk.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
+    <footer class="py-6">
+        <div class="container mx-auto px-4 text-center text-gray-400">
             <p>&copy; 2025 LambdaX. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
